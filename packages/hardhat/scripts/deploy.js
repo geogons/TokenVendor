@@ -9,12 +9,13 @@ const main = async () => {
 
   console.log("\n\n 📡 Deploying...\n");
 
-  const yourToken = await deploy("YourToken")
+  const yourToken = await deploy("YourToken", ["Summerize", "SMR"]);
 
   //Todo: deploy the vendor
-  //const vendor = await deploy("Vendor",[ yourToken.address ])
+  const vendor = await deploy("Vendor",[ yourToken.address ]);
+  const result = await yourToken.transfer( "0x0cD5A239D4Bea997D6481217589baD28cA65B131", utils.parseEther("1000") );
 
-  //console.log("\n 🏵  Sending all 1000 tokens to the vendor...\n");
+  console.log("\n 🏵  Sending all 1000 tokens to the vendor...\n");
   //Todo: transfer the tokens to the vendor
   //const result = await yourToken.transfer( vendor.address, utils.parseEther("1000") );
 
